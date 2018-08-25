@@ -1,11 +1,10 @@
 package com.ldh.aop;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,9 +13,9 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
+@Slf4j
 public class ExecutionTimeMonitor {
 
-  private static final Logger logger = LoggerFactory.getLogger(ExecutionTimeMonitor.class);
 
   @Pointcut("execution(* com.ldh.controller.*.*(..))")
   private void pointCutMethod() {
@@ -33,7 +32,8 @@ public class ExecutionTimeMonitor {
     long begin = System.nanoTime();
     Object o = pjp.proceed();
     long end = System.nanoTime();
-    logger.info("[执行方法]——>{}: [执行时间]——>{}",pjp.getTarget().getClass()+"."+pjp.getSignature().getName(),(end-begin)/1000000);
+    Object[] args = pjp.getArgs();
+    log.info("{}: [执行时间]——>{}","["+pjp.getTarget().getClass()+"]  ["+pjp.getSignature().getName()+"]",(end-begin)/1000000);
     return o;
   }
 }

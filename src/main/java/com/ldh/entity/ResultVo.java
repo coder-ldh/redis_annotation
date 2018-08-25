@@ -38,6 +38,7 @@ public class ResultVo<T> {
   public static  ResultVo success(String message,Object data){
     ResultVo<Object> resultVo = new ResultVo<>();
     resultVo.setCode(SUCCESS);
+    resultVo.setMessage(message);
     resultVo.setData(data);
     return resultVo;
   }
