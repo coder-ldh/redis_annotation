@@ -27,11 +27,12 @@ import java.util.Map;
  */
 public class MysqlGenerator {
 
-  private static String packageName="account_service";    //文件路径
+  private static String filePath="";    //文件路径
+  private static String packageName="ldh";    //文件路径
   private static String authorName="ldh";     //作者
-  private static String table="sc_user";                  //table名字
-  private static String prefix="sc_";                     //table前缀
-  private static File file = new File(packageName);
+  private static String table="user";                  //table名字
+  private static String prefix="";                     //table前缀
+  private static File file = new File(filePath);
   private static String path = file.getAbsolutePath();
 
   public static void main(String[] args) {
@@ -74,7 +75,7 @@ public class MysqlGenerator {
             .setDriverName("com.mysql.jdbc.Driver")
             .setUsername("root")
             .setPassword("root")
-            .setUrl("jdbc:mysql://127.0.0.1:3306/tdx_shop?characterEncoding=utf8")
+            .setUrl("jdbc:mysql://127.0.0.1:3306/sx?characterEncoding=utf8")
     ).setStrategy(
         // 策略配置
         new StrategyConfig()
@@ -97,7 +98,7 @@ public class MysqlGenerator {
             // 自定义 service 实现类父类
             // .setSuperServiceImplClass("com.baomidou.demo.TestServiceImpl")
             // 自定义 controller 父类
-            .setSuperControllerClass("com.tdx."+packageName+".controller.AbstractController")
+            .setSuperControllerClass("com."+packageName+".controller.AbstractController")
         // 【实体】是否生成字段常量（默认 false）
         // public static final String ID = "test_id";
         // .setEntityColumnConstant(true)
@@ -114,7 +115,7 @@ public class MysqlGenerator {
         // 包配置
         new PackageConfig()
             //.setModuleName("User")
-            .setParent("com.tdx."+packageName)// 自定义包路径
+            .setParent("com."+packageName)// 自定义包路径
             .setController("controller")// 这里是控制器包名，默认 web
             .setEntity("entity")
             .setMapper("dao")
