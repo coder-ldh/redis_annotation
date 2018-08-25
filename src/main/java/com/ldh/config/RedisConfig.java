@@ -21,19 +21,9 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 /**
  * @Author: ldh
  * 自定义Cache配置
-   @Cacheable
-   @Cacheable("product")
-   @Cacheable(value = {"product","order"}, key = "#root.targetClass+'-'+#id")
-   @Cacheable(value = "product", key = "#root.targetClass+'-'+#id")
-   自定义cacheManager
-   @Cacheable(value = "product", key = "#root.targetClass+'-'+#id” cacheManager="cacheManager")
-   @CachePut
-   应用到写数据的方法上，如新增/修改方法
-   @CachePut(value = "product", key = "#root.targetClass+'-'+#product.id")
-   @CacheEvict
-   即应用到移除数据的方法上，如删除方法
-   @CacheEvict(value = "product", key = "#root.targetClass+'-'+#id")
-   提供的SpEL上下文数据
+ @Cacheable  spring 会在其被调用后将返回值缓存起来，以保证下次利用同样的参数来执行该方法时可以直接从缓存中获取结果，而不需要再次执行该方法。
+ @CachePut  标注的方法在执行前不会去检查缓存中是否存在之前执行过的结果，而是每次都会执行该方法，并将执行结果以键值对的形式存入指定的缓存中。
+ @CacheEvict 用来标注在需要清除缓存元素的方法或类上的。
  */
 @Configuration
 @EnableCaching

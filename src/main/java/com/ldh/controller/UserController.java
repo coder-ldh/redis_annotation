@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,13 @@ public class UserController extends AbstractController {
   public ResultVo getList(){
     List<User> users = userService.selectList(new EntityWrapper<>());
     return ResultVo.success("query success",users);
+  }
+
+  @GetMapping(value = "/get/{userId}")
+  @ApiOperation(value = "user ", notes = "a user  interface")
+  public ResultVo getOne(@PathVariable Long userId){
+    User user = userService.selectById(userId);
+    return ResultVo.success("query success",user);
   }
 
   @PostMapping(value = "/create")
