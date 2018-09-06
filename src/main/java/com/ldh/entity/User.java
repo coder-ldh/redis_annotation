@@ -35,6 +35,7 @@ public class User extends Model<User> {
      * 用户ID（自增）
      */
     @TableId(value = "user_id", type = IdType.AUTO)
+    @ApiModelProperty(value="用户ID（自增）",name="userId",hidden = true)
     private Long userId;
     /**
      * 用户名称
