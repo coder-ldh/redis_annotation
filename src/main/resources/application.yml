@@ -40,7 +40,7 @@ spring:
       # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   context:
-      component-scan: com.shengxun.scums.entity
+      component-scan: com.ldh
 
   # Redis配置
   redis:
