@@ -3,7 +3,7 @@ package com.ldh.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.ldh.controller.base.AbstractController;
-import com.ldh.entity.ResultVo;
+import com.ldh.result.ResultVo;
 import com.ldh.entity.User;
 import com.ldh.service.UserService;
 import io.swagger.annotations.Api;

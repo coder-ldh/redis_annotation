@@ -4,7 +4,7 @@ package com.ldh.controller;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.ldh.controller.base.AbstractController;
 import com.ldh.entity.Flower;
-import com.ldh.entity.ResultVo;
+import com.ldh.result.ResultVo;
 import com.ldh.service.FlowerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

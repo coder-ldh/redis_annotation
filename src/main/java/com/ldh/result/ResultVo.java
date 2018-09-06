@@ -1,4 +1,4 @@
-package com.ldh.entity;
+package com.ldh.result;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
