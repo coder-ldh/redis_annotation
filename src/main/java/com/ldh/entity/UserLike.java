@@ -1,5 +1,6 @@
 package com.ldh.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 import com.baomidou.mybatisplus.enums.IdType;
@@ -32,12 +33,15 @@ public class UserLike extends Model<UserLike> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     @TableField("user_id")
+    @ApiModelProperty(value="用户ID",name="userId",required=true,example="1")
     private Long userId;
+    @ApiModelProperty(value="视频ID",name="flowerVideoId",required=true,example="1")
     @TableField("flower_video_id")
     private Long flowerVideoId;
     /**
      * 状态(-1为删除，0为失效，1为正常)
      */
+    @ApiModelProperty(value="状态(-1为删除，0为失效，1为正常)",name="status",required=true,example="1")
     private Integer status;
     @TableField("create_time")
     private Date createTime;

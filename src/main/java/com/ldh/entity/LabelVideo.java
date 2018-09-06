@@ -1,5 +1,6 @@
 package com.ldh.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 import com.baomidou.mybatisplus.enums.IdType;
@@ -9,6 +10,9 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -18,6 +22,9 @@ import java.io.Serializable;
  * @author ldh123
  * @since 2018-09-06
  */
+@NoArgsConstructor
+@Data
+@AllArgsConstructor
 @TableName("label_video")
 public class LabelVideo extends Model<LabelVideo> {
 
@@ -28,112 +35,38 @@ public class LabelVideo extends Model<LabelVideo> {
     /**
      * 标签ID
      */
+    @ApiModelProperty(value="标签ID",name="labelId",required=true,example="1")
     @TableField("label_id")
     private Long labelId;
     /**
      * 创建者
      */
+    @ApiModelProperty(value="创建者ID",name="userId",required=true,example="1")
     @TableField("user_id")
     private Long userId;
     /**
      * 花的视频ID
      */
+    @ApiModelProperty(value="花的视频ID",name="flowerVideoId",required=true,example="1")
     @TableField("flower_video_id")
     private Long flowerVideoId;
     /**
      * 状态(-1为删除，0为失效，1为正常)
      */
+    @ApiModelProperty(value="状态(-1为删除，0为失效，1为正常)",name="status",required=true,example="1")
     private Integer status;
     /**
      * 排序
      */
+    @ApiModelProperty(value="排序",name="sort",required=true,example="1")
     private Integer sort;
     @TableField("update_time")
     private Date updateTime;
     @TableField("create_time")
     private Date createTime;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getLabelId() {
-        return labelId;
-    }
-
-    public void setLabelId(Long labelId) {
-        this.labelId = labelId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getFlowerVideoId() {
-        return flowerVideoId;
-    }
-
-    public void setFlowerVideoId(Long flowerVideoId) {
-        this.flowerVideoId = flowerVideoId;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Integer getSort() {
-        return sort;
-    }
-
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
     @Override
     protected Serializable pkVal() {
         return this.id;
-    }
-
-    @Override
-    public String toString() {
-        return "LabelVideo{" +
-        ", id=" + id +
-        ", labelId=" + labelId +
-        ", userId=" + userId +
-        ", flowerVideoId=" + flowerVideoId +
-        ", status=" + status +
-        ", sort=" + sort +
-        ", updateTime=" + updateTime +
-        ", createTime=" + createTime +
-        "}";
     }
 }
