@@ -30,7 +30,7 @@ public class MysqlGenerator {
   private static String filePath="";    //文件路径
   private static String packageName="ldh";    //文件路径
   private static String authorName="ldh";     //作者
-  private static String table="user";                  //table名字
+  private static String [] table={"user"};                  //table名字
   private static String prefix="";                     //table前缀
   private static File file = new File(filePath);
   private static String path = file.getAbsolutePath();
@@ -54,9 +54,9 @@ public class MysqlGenerator {
             // 自定义文件命名，注意 %s 会自动填充表实体属性！
             .setMapperName("%sMapper")
             .setXmlName("%sMapper")
-            .setServiceName("%sService")
+            /*.setServiceName("%sService")
             .setServiceImplName("%sServiceImpl")
-            .setControllerName("%sController")
+            .setControllerName("%sController")*/
     ).setDataSource(
         // 数据源配置
         new DataSourceConfig()
@@ -83,7 +83,7 @@ public class MysqlGenerator {
             //.setDbColumnUnderline(true)//全局下划线命名
             .setTablePrefix(new String[]{prefix})// 此处可以修改为您的表前缀
             .setNaming(NamingStrategy.underline_to_camel)// 表名生成策略
-            .setInclude(new String[] { table }) // 需要生成的表
+            .setInclude(table) // 需要生成的表
             .setRestControllerStyle(true)
             //.setExclude(new String[]{"test"}) // 排除生成的表
             // 自定义实体父类
