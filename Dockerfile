@@ -7,7 +7,7 @@ ADD pom.xml /tmp/build/
 
 ADD src /tmp/build/src
 
-RUN cd /tmp/build && mvn clean package -dmvn.test.skip=true \
+RUN cd /tmp/build && mvn clean package -Dmaven.test.skip=true \
         #拷贝编译结果到指定目录
         && mv target/*.jar /tmp/flower/app.jar \
         #清理编译痕迹
