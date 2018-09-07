@@ -15,4 +15,6 @@ RUN cd /tmp/build && mvn clean package -Dmaven.test.skip=true \
 
 ENV LANG='C.UTF-8' LC_ALL='C.UTF-8' TZ='Asia/Shanghai'
 
-RUN cd /tmp/flower && ["java","-jar","app.jar"]
+RUN cd /tmp/flower
+
+ENTRYPOINT ["java","-jar","app.jar"]
