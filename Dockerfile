@@ -12,7 +12,8 @@ RUN cd /tmp/build && mvn clean package -Dmaven.test.skip=true \
         && mv target/*.jar /tmp/flower/app.jar \
         #清理编译痕迹
         && cd / && rm -rf /tmp/build
+        && yum install java-1.8.0-openjdk* -y
 
 ENV LANG='C.UTF-8' LC_ALL='C.UTF-8' TZ='Asia/Shanghai'
 
-RUN cd /tmp/flower && ["java","-version"]
+RUN cd /tmp/flower && ["java","-jar","app.jar"]
