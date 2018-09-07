@@ -63,7 +63,7 @@ public class User extends Model<User> {
     @ApiModelProperty(value="性别（1为男，2为女）",name="sex",example="1")
     private Integer sex;
     /**
-     * 状态（-1为删除）
+     * 状态（-1为删除,0为资料不完整，1为正常）
      */
     @ApiModelProperty(value="状态（-1为删除）",name="status",example="1")
     private Integer status;

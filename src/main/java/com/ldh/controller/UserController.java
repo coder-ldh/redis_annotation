@@ -103,7 +103,7 @@ public class UserController extends AbstractController {
     }
     User user = userService.selectOne(new EntityWrapper<User>().eq("name", loginName));
     if (user == null){
-      return ResultVo.fail(loginName + "in existent");
+      return ResultVo.fail(loginName + " in existent");
     }
     String userPassword = user.getPassword();
     if (!userPassword.equalsIgnoreCase(password)){
@@ -129,9 +129,10 @@ public class UserController extends AbstractController {
       User u = new User();
       u.setName(loginName);
       u.setPassword(password);
+      u.setStatus(0);
       userService.insert(u);
-      return ResultVo.success("register success",user);
+      return ResultVo.success("register success",u);
     }
-    return ResultVo.fail(loginName + "already exist");
+    return ResultVo.fail(loginName + " already exist");
   }
 }
