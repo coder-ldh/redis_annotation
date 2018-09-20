@@ -44,7 +44,7 @@ spring:
 
   # Redis配置
   redis:
-      host:  10.10.21.64
+      host:  127.0.0.1
       port:  6379
 
 
