@@ -32,7 +32,6 @@ public class ExecutionTimeMonitor {
     long begin = System.nanoTime();
     Object o = pjp.proceed();
     long end = System.nanoTime();
-    Object[] args = pjp.getArgs();
     log.info("{}: [执行时间]——>{}","["+pjp.getTarget().getClass()+"]  ["+pjp.getSignature().getName()+"]",(end-begin)/1000000);
     return o;
   }
